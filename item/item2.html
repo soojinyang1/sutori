@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>item2</title>
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <style>
+    .img{
+      position:absolute;
+
+      z-index:1;
+      top:20%; 
+      left:50%;
+      transform: translate(-50%, -10%);
+    }
+
+    .image{
+      border:1px solid rgb(155, 153, 153); 
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);  
+      margin: 0 auto;
+      width:500px;  
+      height:auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .share{
+      border:1px solid gainsboro; 
+      background-color: #fff;
+      position: absolute;
+      bottom: 0%;
+      left:0%;
+      margin-left: 33.3%;
+
+    }
+
+    .explain{
+      border:1px solid gainsboro; 
+        display : flex;
+        justify-content : center;
+        align-items: center;
+        word-break: normal; 
+        /*기본값으로 한글, 한자, 일본어는 글자 단위로 줄바꿈 되고 영어는 단어 단위로 줄 바꿈 된다.*/
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+  /*공유하기*/
+ 
+  .overlay{
+      border:rgb(155, 153, 153) 1px solid;
+      padding: 5px;
+      width: 100px;
+      height: auto;
+    }
+
+    button{
+      border: 0;
+      outline:0;
+      text-align: left;
+      color:none;
+      background-color: transparent;
+      font-size: 16px;
+    }
+
+    button:hover{
+      color:skyblue;
+    }
+
+    *::before{
+      width:20px; 
+      display:inline-block;
+      margin:0, auto;
+    }
+
+    #fb::before{
+      content:'\f052'; 
+      font-family: fontello;
+      margin-left:4px;
+      padding-right: 0;
+    }
+
+    #fb{
+      margin-left: -2px;
+    }
+    
+    #link::before{
+      content:'\f07b'; 
+      font-family: fontello;
+    }
+
+    #insta::before{
+      content:'\f05d '; 
+      font-family: fontello;
+    }
+
+    #twitter::before{
+      content:'\f058'; 
+      font-family: fontello;
+    }
+
+    a {
+    text-decoration-line: none;
+    }
+
+    span{
+      color: #535252;
+    }
+
+    </style>      
+    </head>
+    <body>
+      <div class="img"> <!--자식-->
+          <div class="image" >  
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/sCcty_fyaX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="explain">
+                구글 폰트(Google Fonts, 이전 명칭: 구글 웹 폰트/   Google Web Fonts)는 라이선스에서 자유로운 952개의 글꼴 라이브러리이자, CSS[1]와 안드로이드[2]를 통해 글꼴을 편하기 사용할 수 있도록 라이브러리와 API를 둘러보기 위한 상호작용 웹 디렉터리이다.
+              </div>
+              <button onclick="document.getElementById('popup1').style.display='block'">Share</button>  
+          </div>
+          <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+            <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+            <div class=" "> <!--자식-->
+              <li style="list-style:none;">
+                <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+              </li>
+              <li id="shareFb" style="list-style:none;" >
+                  <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+              </li>
+              <li id="shareTwitter" style="list-style:none;" >
+              <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+              </li>
+            </div>
+        </div>                
+      </div>
+            
+
+      <script>   
+         function clip() {    
+            var url = '';
+            var textarea = document.createElement("textarea");
+            
+            document.body.appendChild(textarea);
+            url = window.document.location.href;
+            textarea.value = url;
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            
+            alert("URL이 복사되었습니다.")
+            }
+
+        function clip1(){
+            const btnShareFb = document.querySelector('#shareFb');
+    
+            btnShareFb.addEventListener('click', () => {
+            const pageUrl = 'http://127.0.0.1:5501/index.html';
+            window.open("http://www.facebook.com/sharer/sharer.php?u="+pageUrl);
+            })
+            }
+
+         function clip2(){
+            const btnShareFb = document.querySelector('#shareTwitter');
+    
+            btnShareFb.addEventListener('click', () => {
+            const pageUrl = 'http://127.0.0.1:5501/index.html';
+            window.open("https://twitter.com/intent/tweet?text="+pageUrl);
+            })
+            }    
+    </script>
+    </body>
+</html>

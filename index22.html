@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Timeline: 2-column fluid masonry layout</title>
+  <link rel="stylesheet" href="fontello/css/fontello.css">
+  <link rel="stylesheet" href="./style22.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!--https://viljamis.com/columns/
+<h1>2-column fluid masonry layout without JS plugins</h1>
+  <p>Easily turn simple 1-column layout into a fluid 2-column masonry layout without JS plugins. Works even in IE6! <a href="https://gist.github.com/viljamis/5004354">View the source code</a></p>-->
+
+<section id="timeline" >
+  <div class="explain" style="border:1px solid none; background-color:white;color: #595D61; width:100%; height:200px; z-index:1;text-align: center;">
+    <p style="font-size:50px; margin:0; padding: 0;"> 
+        시인 김수영, 아카이브로 만나다
+    </p>
+    <p> 
+        연세대학교 윤동주기념관 Story I
+    </p>
+    <p style="display:inline-block; font-size:40px; margin-top:30px; margin-bottom:30px; padding: 20px; border:1px solid none; background-color:white;color: #595D61; width:100%; z-index:1;text-align: center;"> 
+        시인 김수영
+    </p>
+ </div>
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <img  src="images/aa.jpg" width="100%">
+        </div>
+        <div>
+            사진 설명 
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+        <button onclick="document.getElementById('popup1').style.display='block'">Share</button> 
+    </div>
+    <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+      <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+      <div class=" "> <!--자식-->
+        <li style="list-style:none;">
+          <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+        </li>
+        <li id="shareFb" style="list-style:none;" >
+            <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+        </li>
+        <li id="shareTwitter" style="list-style:none;" >
+        <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+        </li>
+      </div>
+  </div>  
+  </article> 
+  
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sCcty_fyaX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+          올해는 한국문학의 모더니스트이자 대표적인 참여시인으로 꼽히는 김수영 시인(1921~1968)의 서거 50주년
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+        <button onclick="document.getElementById('popup1').style.display='block'">Share</button> 
+      </div>
+      <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+        <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+        <div class=" "> <!--자식-->
+          <li style="list-style:none;">
+            <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+          </li>
+          <li id="shareFb" style="list-style:none;" >
+              <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+          </li>
+          <li id="shareTwitter" style="list-style:none;" >
+          <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+          </li>
+        </div>
+    </div>  
+  </article> 
+
+ <!-- 중간에 들어가는 말 -- display:inline-block으로 하면 라인의 처음부터 끝까지 가게 됨-->
+ <p style="display:inline-block; font-size:40px; margin-top:30px; margin-bottom:30px; padding: 20px; border:1px solid none; background-color:white;color: #595D61; width:100%; z-index:1;text-align: center;"> 
+  시인 김수영, 아카이브를 만들다
+ </p>
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <img  src="images/bb.jpg" width="100%">
+        </div>
+        <div >
+            사진 설명 2
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+        <button onclick="document.getElementById('popup1').style.display='block'">Share</button> 
+      </div>
+      <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+        <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+        <div class=" "> <!--자식-->
+          <li style="list-style:none;">
+            <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+          </li>
+          <li id="shareFb" style="list-style:none;" >
+              <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+          </li>
+          <li id="shareTwitter" style="list-style:none;" >
+          <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+          </li>
+        </div>
+    </div>  
+  </article> 
+
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <a href="https://www.sutori.com/en/story/siin-gimsuyeong-akaibeuro-mannada--LCFGGoPWUU4qmAJNRi2Q4F1j"><img  src="images/cc.jpg" width="100%"></a>
+        </div>
+        <div>
+            올해는 한국문학의 모더니스트이자 대표적인 참여시인으로 꼽히는 김수영 시인(1921~1968)의 서거 50주년을 맞는 해다. 그가 우리 곁을 떠난 지 어느 덧 반세기가 지났지만 그 누구보다 온몸으로 ‘자유’를 갈망했던 그의 시는 오늘날 보다 푸르른 젊음으로 우리의 마음을 흔들고 있다.
+            1921년 서울 종로에서 태어난 김수영 시인의 삶은 그가 살아온 시대만큼이나 파란만장했다. 
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+        <button onclick="document.getElementById('popup1').style.display='block'">Share</button> 
+      </div>
+      <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+        <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+        <div class=" "> <!--자식-->
+          <li style="list-style:none;">
+            <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+          </li>
+          <li id="shareFb" style="list-style:none;" >
+              <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+          </li>
+          <li id="shareTwitter" style="list-style:none;" >
+          <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+          </li>
+        </div>
+    </div>  
+  </article> 
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <video style="max-height: 500px;" autoplay controls loop muted>
+                <source src="images/dd.mp4" >
+            </video>
+        </div>
+        <div >
+            사진 설명 2
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+        <button onclick="document.getElementById('popup1').style.display='block'">Share</button> 
+      </div>
+      <div class="overlay" id="popup1" style="display:none"> <!--부모-->
+        <button onclick="document.getElementById('popup1').style.display='none'">&times;</button> 
+        <div class=" "> <!--자식-->
+          <li style="list-style:none;">
+            <a href="#" onclick="clip();" alt="Share on Facebook"><span id="link">  Link</span></a>
+          </li>
+          <li id="shareFb" style="list-style:none;" >
+              <a href="#" onclick="clip1(); return false;" alt="Share"><span id="fb">  Facebook</span></a>
+          </li>
+          <li id="shareTwitter" style="list-style:none;" >
+          <a href="#" onclick="clip2(); return false;" alt="Share"><span id="twitter">  Twitter</span></a>
+          </li>
+        </div>
+    </div>  
+  </article> 
+</section>
+<!-- partial -->
+
+<script>
+    window.onload = function layout() {
+  var leftColumnHeight = 0,
+    rightColumnHeight = 100,
+    articles = document.querySelectorAll('#timeline article');
+  for (var i = 0; i < articles.length; i++) {
+    if (leftColumnHeight > rightColumnHeight) {
+      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
+    } else {
+      leftColumnHeight += articles[i].offsetHeight;
+    }
+  }
+};
+
+function clip() {    
+            var url = '';
+            var textarea = document.createElement("textarea");
+            
+            document.body.appendChild(textarea);
+            url = window.document.location.href;
+            textarea.value = url;
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            
+            alert("URL이 복사되었습니다.")
+            }
+
+  function clip1(){
+      const btnShareFb = document.querySelector('#shareFb');
+
+      btnShareFb.addEventListener('click', () => {
+      const pageUrl = 'http://127.0.0.1:5501/index.html';
+      window.open("http://www.facebook.com/sharer/sharer.php?u="+pageUrl);
+      })
+      }
+
+    function clip2(){
+      const btnShareFb = document.querySelector('#shareTwitter');
+
+      btnShareFb.addEventListener('click', () => {
+      const pageUrl = 'http://127.0.0.1:5501/index.html';
+      window.open("https://twitter.com/intent/tweet?text="+pageUrl);
+      })
+      }    
+
+</script>
+</body>
+</html>

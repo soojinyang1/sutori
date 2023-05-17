@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="facebook" unicode="&#xf052;" d="M0 350h97v-469h193v469h130l17 161h-146v81q0 18 2 28t8 20 19 13 35 4h81v161h-129q-112 0-161-53t-49-157v-97h-97v-161z" horiz-adv-x="437.5" />
+
+<glyph glyph-name="twitter" unicode="&#xf058;" d="M0 68q0-7 7-13 13-8 44-24 119-62 250-62 163 0 296 84 63 40 113 96t78 118 43 123 14 119v17q57 41 89 94 3 6 3 9 0 6-5 11t-11 5q-4 0-12-4-6-2-14-5t-15-5-8-3q13 15 26 39t14 35q0 6-5 11t-11 5q-4 0-8-3-56-29-104-40-59 56-141 56-84 0-143-59t-59-141q0-15 2-24-83 7-159 39t-138 88q-14 14-55 57-6 6-13 6-6 0-13-8-12-19-20-46t-7-54q0-73 45-127l-14 7q-12 5-18 5-8 0-14-5t-5-12q0-52 26-97t71-74l-5 1q-1 0-3 1t-3 1-1 0q-7 0-11-5t-5-11q0 0 1-5 17-51 55-86t90-48q-84-52-187-52-7 0-22 1-20 1-22 1-7 0-11-5t-5-11z" horiz-adv-x="937.5" />
+
+<glyph glyph-name="instagram" unicode="&#xf05d;" d="M0 57v287h215q24-83 94-136t160-54 159 54 94 136h215v-287q0-73-51-124t-125-52h-585q-73 0-124 52t-52 124z m0 433v153q0 72 52 124t124 51h585q73 0 125-51t51-124v-153h-215q-24 84-94 137t-159 54-160-54-94-137h-215z m323-72q0-61 42-104t104-43q61 0 103 43t43 104-43 103-103 43q-61 0-104-43t-42-103z" horiz-adv-x="937.5" />
+
+<glyph glyph-name="link" unicode="&#xf07b;" d="M8 96q-17 66 0 132t67 115l131 131q49 49 115 67t131 0 116-67q20-20 20-49t-20-50-50-20-49 20q-35 34-82 34t-81-34l-132-131q-33-34-33-82t33-82q34-33 82-33t81 33l27 28q78-38 164-35l-91-92q-49-49-115-66t-132 0-115 66-67 115z m291 180q0 29 21 49 20 21 49 21t50-21q33-34 81-34t82 34l131 132q34 34 34 81t-34 81q-33 34-81 34t-82-34l-27-26q-77 36-164 35l91 91q50 49 116 66t131 0 115-66q49-49 67-115t0-132-67-115l-131-131q-49-49-115-67t-132 0-114 67q-21 21-21 50z" horiz-adv-x="887.2" />
+</font>
+</defs>
+</svg>

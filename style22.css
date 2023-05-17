@@ -1,0 +1,232 @@
+ div{
+  margin-top:10px;
+ }
+
+   #timeline {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+    #timeline article {
+      display: block;
+      position: relative;
+      float: left;
+      clear: left;      
+      width: 50%;
+    }
+
+    #timeline article.right {
+      float: right;
+      clear: right;  
+    }
+
+/* LINE */
+	#timeline:after {
+		content: " ";
+		display: block;
+		clear: both;
+    z-index: -1;
+	}
+
+	#timeline:before {
+		content: " ";
+    position: absolute;    
+    top: 40px;
+		bottom: 0px;
+		left: 50%;		
+		width: 3px;
+    margin-left: -1.5px;   
+		background-color: #def;
+    z-index: -1;
+	}
+
+
+/* CONTENT BOX */
+	#timeline article div.content{
+		position: relative; 
+ 		float: right;       
+		border: 1px solid #d4d4d4;
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);    
+    width: 60%;   
+    padding: 10px;
+    margin-right: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+	}
+
+  #timeline article.right div.content{
+       float: left;      
+       margin-right: 0; 
+       margin-left: 80px;      
+    }
+
+	#timeline article figure, #timeline article iframe, #timeline article video{
+		width: 100%!important;
+        padding: 0!important;
+	}
+
+
+    /* ARROWS */
+	#timeline article div.content:before {
+        position: absolute;
+        top: 10px;
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid #ccc; /*왼쪽 박스에 붙음 */
+        border-right: 0 solid #ccc;  /*오른쪽 박스에 붙음 */
+        border-bottom: 15px solid transparent;  
+        content: " ";
+	}
+    
+    /*이 부분이 없으면 오른쪽 상자의 오른쪽 화살표가 없어지고 왼쪽으로 화살표가 붙게 됨 이유가 뭘까.....*/    
+    #timeline article.right div.content:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+     }
+
+    #timeline article div.content:after {
+        position: absolute;
+        top: 11px;
+        right: -13.7px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid #fff;  /*왼쪽 박스 말풍선 색깔 */
+        border-right: 0 solid #fff;   /*오른쪽 박스 말풍선 색깔 */
+        border-bottom: 14px solid transparent;
+        content: " ";		
+        }
+
+     /*이 부분이 없으면 오른쪽 상자에 칠한 하얀 색이 왼쪽으로 붙게 됨.. 이유가 뭘까.....*/      
+    #timeline article.right div.content:after {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -14px;
+        right: auto;
+        }
+
+
+/* BADGE --동그란 원 */
+	#timeline article .badge a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	#timeline article .badge {
+        position: absolute;
+        top: 50px;
+		right: 5px;
+		z-index: 100; 
+    
+		width: 50px;
+		height: 50px;
+    
+		line-height: 50px;
+		font-size: 1.2em;
+		text-align: center;
+		
+		cursor: default;
+	}
+	
+    #timeline article.right .badge{
+		left: 5px;
+	}
+
+	#timeline article .badge:after{
+		content: ' ';
+		display: block;				
+		position: absolute;
+		top: 17px;
+		right: -13px;
+    	z-index: 10;
+    
+		width: 8px;
+		height: 8px;
+    
+		background: #fff;
+		border-radius: 10px;
+		border: 4px solid #eeeeee;
+	}
+	
+    #timeline article.right > .badge:after{
+		left: -13px;
+	}
+
+
+
+/* MEDIA QUERIES */
+    @media only screen and (max-width: 767px) {
+        #timeline article div.content{
+            margin-right: 0;
+            margin-left: 0;
+        }
+        #timeline article div.content:before{
+            display: none;
+        }
+        #timeline article div.content:after{
+            display: none;
+        }
+        #timeline article .badge{
+            display: none;
+        }
+    }
+
+/*공유하기*/
+.overlay{
+  border:rgb(155, 153, 153) 1px solid;
+  padding: 5px;
+  width: 100px;
+  height: auto;
+}
+
+button{
+  border: 0;
+  outline:0;
+  text-align: left;
+  color:none;
+  background-color: transparent;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover{
+  color:skyblue;
+}
+
+#fb::before{
+  content:'\f052'; 
+  font-family: fontello;
+  margin-left:4px;
+  padding-right: 0;
+}
+
+#fb{
+  margin-left: -2px;
+}
+
+#link::before{
+  content:'\f07b'; 
+  font-family: fontello;
+}
+
+#insta::before{
+  content:'\f05d '; 
+  font-family: fontello;
+}
+
+#twitter::before{
+  content:'\f058'; 
+  font-family: fontello;
+}
+
+
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }

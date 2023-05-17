@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timeline</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+.c-share {
+  position: relative;
+  width: 3.4375em;
+  height: 3.4375em;
+}
+
+.c-share__input {
+  display: none;
+}
+.c-share__input:checked ~ .c-share__toggler .c-share__icon {
+  transition: 0s;
+  width: 0;
+  height: 0;
+  color: #639eff;
+}
+.c-share__input:checked ~ .c-share__toggler .c-share__icon::before {
+  transform: rotate(-45deg);
+}
+.c-share__input:checked ~ .c-share__toggler .c-share__icon::after {
+  transform: rotate(45deg);
+}
+.c-share__input:checked ~ .c-share_options {
+  width: 11.0625em;
+  height: 12.5em;
+  border-radius: 0.3125em;
+}
+
+
+.c-share__input:checked ~ .c-share_options::before,
+.c-share__input:checked ~ .c-share_options li {
+  transition: 0.3s 0.15s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.c-share__toggler,
+.c-share_options {
+  position: absolute;
+  right: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+}
+
+.c-share__toggler {
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-share__icon {
+  position: relative;
+  left: -0.3125em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  color: #029dfc;
+  background-color: currentColor;
+  box-shadow: 0.625em -0.625em, 0.625em 0.625em;
+  transition: 0.1s 0.05s;
+}
+.c-share__icon::before, .c-share__icon::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 0.125em;
+  background-color: currentColor;
+  transition: 0.1s;
+}
+.c-share__icon::before {
+  top: 0.1875em;
+  left: 0.1875em;
+  transform-origin: bottom left;
+  transform: rotate(45deg);
+}
+.c-share__icon::after {
+  top: -0.125em;
+  left: 0.03125em;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+
+.c-share_options {
+  list-style: none;
+  margin: 0;
+  padding: 1.0625em 1.25em;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: 0.2s;
+  box-shadow: 0 0.125em 0.125em rgba(0, 0, 0, 0.3);
+}
+.c-share_options::before {
+  content: attr(data-title);
+  display: block;
+  margin-bottom: 1.25em;
+  font-weight: 700;
+}
+.c-share_options li {
+  font-size: 0.875em;
+  color: #464646;
+  cursor: pointer;
+}
+.c-share_options li:not(:last-child) {
+  margin-bottom: 0.75em;
+}
+.c-share_options::before,
+.c-share_options li {
+  opacity: 0;
+  transform: translateY(0.625em);
+  transition: 0s;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #639eff;
+  margin: 0;
+  display: grid;
+  height: 100vh;
+  margin: 0;
+  place-items: center center;
+}
+
+    </style>
+</head>
+<body>
+  <div class="c-share">
+    <input class="c-share__input" type="checkbox" id="checkbox">
+    <label class="c-share__toggler" for="checkbox">
+              <span class="c-share__icon"></span>
+    </label>
+  
+    <ul class="c-share_options" data-title="Share">
+      <li>Facebook</li>
+      <li>Twitter</li>
+      <li>Google</li>
+      <li>Email</li>
+    </ul>
+  </div>
+
+  <p style="Noto Sans KR, sans-serif;">
+    구글 폰트는 라이선스에서 자유로운 952개의 글꼴 라이브러리이자, CSS와 안드로이드를 통해 글꼴을 편하기 
+    사용할 수 있도록 라이브러리와 API를 둘러보기 위한 상호작용 웹 디렉터리이다.
+  </p>
+  </body>
+  </html>
