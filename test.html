@@ -11,12 +11,23 @@
 		</style>
   </head>
   <body>
+        
+
 		<script>
 			var jbMedia = window.matchMedia( '( min-width: 500px )' );
 			
 			if ( jbMedia.matches == true ) {
 				document.write( '<div style="width: 600px; height: 200px; margin: 30px auto; border: 5px solid #dadada;"></div>' );
 			}
+
+            var jbMedia = window.matchMedia( '(max-width: 768px )' );
+
+            if ( jbMedia.matches == true ) {
+                for (var i = 0; i < articles.length; i++) {
+                    articles[i].classList.remove('right') 
+                }
+            }
+
 		</script>
   </body>
 </html>
