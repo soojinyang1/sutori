@@ -217,13 +217,24 @@
   }
 };
 
-var jbMedia = window.matchMedia( '(max-width: 768px )' );
-
-if ( jbMedia.matches == true ) {
-    for (var i = 0; i < articles.length; i++) {
-        articles[i].classList.remove('right') 
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 767) {
+    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
+  }
+  else {
+    var leftColumnHeight = 0,
+    rightColumnHeight = 100,
+    articles = document.querySelectorAll('#timeline article');
+  for (var i = 0; i < articles.length; i++) {
+    if (leftColumnHeight > rightColumnHeight) {
+      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
+    } else {
+      leftColumnHeight += articles[i].offsetHeight;
     }
-}
+  }
+  }
+});
+
 
   function clip() {    
       var url = '';
