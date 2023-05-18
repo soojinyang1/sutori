@@ -161,9 +161,17 @@
 
     @media (max-width: 767px) {
       
-        #timeline article {
-          display: none;
-        }
+      #timeline:after{
+        display: none;
+      }
+
+      #timeline:before{
+        display: none;
+      }
+
+      #timeline article .badge{
+        display: none;
+    }
     }
 
 /*공유하기*/
