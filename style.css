@@ -161,34 +161,9 @@
 
     @media (max-width: 767px) {
       
-        #timeline:after{
+        #timeline article {
           display: none;
         }
-
-        #timeline:before{
-          display: none;
-        }
-
-        #timeline article div.content{
-            margin-right: 0;
-            margin-left: 0;
-        }
-        #timeline article div.content:before{
-            display: none;
-        }
-        #timeline article div.content:after{
-            display: none;
-        }
-        #timeline article .badge{
-            display: none;
-        }
-        #timeline article .badge a{
-            display: none;}
-
-        #timeline article .badge:after{
-            display: none;
-        }
-
     }
 
 /*공유하기*/
