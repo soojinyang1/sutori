@@ -1,31 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Timeline</title>
+<!doctype html>
+<html lang="ko">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-        .a:nth-child(1){
-            border: 1px solid black;
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-        .a:nth-child(2){
-            border: 1px solid black;
-            width: 100px;
-            height: 100px;
-            background-color: greenyellow;
-        }
-    </style>
-</head>
-<body>
-    <div class="a a1">
-
-    </div>
-    <div class="a a2">
-        
-    </div>
-
-</body>
+    <title>HTML</title>
+		<style>
+			body {
+				font-family: Consolas, sans-serif;
+				font-style: italic;
+			}
+		</style>
+  </head>
+  <body>
+		<script>
+			var jbMedia = window.matchMedia( '( min-width: 500px )' );
+			
+			if ( jbMedia.matches == true ) {
+				document.write( '<div style="width: 600px; height: 200px; margin: 30px auto; border: 5px solid #dadada;"></div>' );
+			}
+		</script>
+  </body>
 </html>
