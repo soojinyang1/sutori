@@ -217,8 +217,9 @@
   }
 };
 
-window.addEventListener('resize', function() {
-  if (window.innerWidth < 767) {
+const mediaQueryList = window.matchMedia('(max-width: 767px)');
+mediaQueryList.addEventListener('change', function() {
+  if (mediaQueryList.matches) {
     document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
   }
   else {
@@ -234,6 +235,9 @@ window.addEventListener('resize', function() {
   }
   }
 });
+
+
+
 
 
   function clip() {    
