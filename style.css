@@ -159,7 +159,7 @@
 
 /* MEDIA QUERIES */
 
-    @media (max-width: 1000px) {
+    @media (max-width: 767px) {
       
       #timeline:after{
         display: none;
@@ -171,20 +171,19 @@
 
       #timeline article .badge{
         display: none;
-    }
+     }
     
-    #timeline article div.content:before{
+      #timeline article div.content:before{
+        display: none;
+     }
+ 
+     #timeline article div.content:after{
       display: none;
-  }
-  #timeline article div.content:after{
-      display: none;
-  }
+    }
 
-  #timeline article {     
-    width: 100%;
-  }
-
-
+     #timeline article {     
+      width: 100%;
+    }
     }
 
 /*공유하기*/
