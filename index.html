@@ -224,6 +224,26 @@
     document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
   }};
 
+  const mediaQuery = window.matchMedia('screen and (max-width: 768px)');
+  mediaQuery.addEventListener('change', function() {
+  if (mediaQuery.matches) {
+    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
+  }
+  else {
+    var leftColumnHeight = 0,
+    rightColumnHeight = 100,
+    articles = document.querySelectorAll('#timeline article');
+  for (var i = 0; i < articles.length; i++) {
+    if (leftColumnHeight > rightColumnHeight) {
+      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
+    } else {
+      leftColumnHeight += articles[i].offsetHeight;
+    }
+  }
+  }
+});
+
+
 
 /*window.onload = function mq() {
   if (mediaQueryList.matches) {
