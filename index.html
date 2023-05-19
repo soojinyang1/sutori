@@ -219,7 +219,7 @@
 };
 
 const mediaQueryList = window.matchMedia('(max-width: 767px)');
-mediaQueryList.addEventListener('change', function() {
+mediaQueryList.addEventListener('load', function() {
   if (mediaQueryList.matches) {
     document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
   }
