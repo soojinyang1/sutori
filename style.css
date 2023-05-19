@@ -172,6 +172,19 @@
       #timeline article .badge{
         display: none;
     }
+    
+    #timeline article div.content:before{
+      display: none;
+  }
+  #timeline article div.content:after{
+      display: none;
+  }
+
+  #timeline article {     
+    width: 100%;
+  }
+
+
     }
 
 /*공유하기*/

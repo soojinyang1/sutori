@@ -206,6 +206,7 @@
 
 <script>
 
+ /*right클래스가 일정 너비 이하에서는 아예 만들어지지 않게 코드 짬*/
   const mediaQueryList = window.matchMedia('screen and (min-width: 767px)');
   window.onload = function layout() {
     if (mediaQueryList.matches) {
@@ -224,6 +225,7 @@
     document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
   }};
 
+  /*커다란 화면에서 화면 비율 조정에 따라 다시 right class가 나와야 할 수도 있으므로 추가함*/
   const mediaQuery = window.matchMedia('screen and (max-width: 768px)');
   mediaQuery.addEventListener('change', function() {
   if (mediaQuery.matches) {
