@@ -9,21 +9,36 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<!--https://viljamis.com/columns/
-<h1>2-column fluid masonry layout without JS plugins</h1>
-  <p>Easily turn simple 1-column layout into a fluid 2-column masonry layout without JS plugins. Works even in IE6! <a href="https://gist.github.com/viljamis/5004354">View the source code</a></p>-->
+<!--햄버거 메뉴바 만들기-->
+<div id="hamburger">
+  <input type="checkbox" id="icon">
+  <label for="icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div id="header">
+    <ul>
+      <li><a href="#">menu1</a></li>
+      <li><a href="#">menu2</a></li>
+      <li><a href="#">menu3</a></li>
+      <li><a href="#">menu4</a></li>
+    </ul>
+  </div>
+</div>
+
 
 <section id="timeline" >
   <div class="explain" style="border:1px solid none; background-color:white;color: #595D61; width:100%; height:200px; z-index:1;text-align: center;">
-    <p style="font-size:50px; margin:0; padding: 0;"> 
+    <p class="title"> 
         시인 김수영, 아카이브로 만나다
     </p>
     <p> 
         연세대학교 윤동주기념관 Story I
     </p>
  </div>
- <p style="display:inline-block; font-size:40px; margin-top:30px; margin-bottom:30px; padding: 20px; border:1px solid none; background-color:white;color: #595D61; width:100%; z-index:1;text-align: center;"> 
+ <p class="title"> 
   시인 김수영
 </p>
   <article>
@@ -95,7 +110,7 @@
   </article> 
 
  <!-- 중간에 들어가는 말 -- display:inline-block으로 하면 라인의 처음부터 끝까지 가게 됨-->
- <p style="display:inline-block; font-size:40px; margin-top:30px; margin-bottom:30px; padding: 20px; border:1px solid none; background-color:white;color: #595D61; width:100%; z-index:1;text-align: center;"> 
+ <p class="title"> 
   시인 김수영, 아카이브를 만들다
  </p>
   <article>

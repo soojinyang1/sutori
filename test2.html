@@ -1,7 +1,10 @@
- div{
-  margin-top:10px;
- }
-
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodePen - Timeline: 2-column fluid masonry layout</title>
+  <style>
    #timeline {
       display: block;
       position: relative;
@@ -169,15 +172,9 @@
 	}
 
 /*햄버거 메뉴바*/
-body{
-  display: flex;
-  flex-direction: row;
-}
-
-#hamburger{
-  position:fixed; 
-  top:50%; 
-  z-index:10; 
+#static{
+  position: fixed;
+  top: 50%;
 }
 
 #icon{
@@ -244,93 +241,119 @@ body{
   z-index:1;
   position:fixed; 
 }
+  </style>
 
-/* MEDIA QUERIES */
+</head>
+<body>
+<!--햄버거 메뉴바 만들기-->
+<div id="static">
+  <input type="checkbox" id="icon">
+  <label for="icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
-    @media (max-width: 767px) {
-      
-      #timeline:after{
-        display: none;
-      }
-
-      #timeline:before{
-        display: none;
-      }
-
-      #timeline article .badge{
-        display: none;
-     }
-    
-      #timeline article div.content:before{
-        display: none;
-     }
- 
-     #timeline article div.content:after{
-      display: none;
-    }
-
-     #timeline article {     
-      width: 100%;
-    }
-    .title{
-      font-size:25px; 
-    }
-    }
-
-/*공유하기*/
-.overlay{
-  border:rgb(155, 153, 153) 1px solid;
-  padding: 5px;
-  width: 100px;
-  height: auto;
-}
-
-button{
-  border: 0;
-  outline:0;
-  text-align: left;
-  color:none;
-  background-color: transparent;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-button:hover{
-  color:skyblue;
-}
-
-#fb::before{
-  content:'\f052'; 
-  font-family: fontello;
-  margin-left:4px;
-  padding-right: 0;
-}
-
-#fb{
-  margin-left: -2px;
-}
-
-#link::before{
-  content:'\f07b'; 
-  font-family: fontello;
-}
-
-#insta::before{
-  content:'\f05d '; 
-  font-family: fontello;
-}
-
-#twitter::before{
-  content:'\f058'; 
-  font-family: fontello;
-}
+  <div id="header">
+    <ul>
+      <li><a href="#">menu1</a></li>
+      <li><a href="#">menu2</a></li>
+      <li><a href="#">menu3</a></li>
+      <li><a href="#">menu4</a></li>
+    </ul>
+  </div>
+</div>
 
 
-  @media screen and (max-width: 700px){
-    .box{
-      width: 70%;
-    }
-    .popup{
-      width: 70%;
+<section id="timeline" >
+  <div class="explain" style="border:1px solid none; background-color:white;color: #595D61; width:100%; height:200px; z-index:1;text-align: center;">
+    <p class="title"> 
+        시인 김수영, 아카이브로 만나다
+    </p>
+    <p> 
+        연세대학교 윤동주기념관 Story I
+    </p>
+ </div>
+ <p class="title"> 
+  시인 김수영
+</p>
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <img  src="images/aa.jpg" width="100%">
+        </div>
+        <div>
+            사진 설명 
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+    </div>
+  </article>  
+  <article>
+    <div class="badge">
+      <a>
+        1981
+      </a>
+    </div>  
+    <div class="content">
+        <div> 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sCcty_fyaX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+          올해는 한국문학의 모더니스트이자 대표적인 참여시인으로 꼽히는 김수영 시인(1921~1968)의 서거 50주년
+        </div>
+        <div>
+          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
+        </div>
+    </div>
+  </article> 
+</section>
+<script>
+
+ /*right클래스가 일정 너비 이하에서는 아예 만들어지지 않게 코드 짬*/
+  const mediaQueryList = window.matchMedia('screen and (min-width: 767px)');
+  window.onload = function layout() {
+    if (mediaQueryList.matches) {
+  var leftColumnHeight = 0,
+    rightColumnHeight = 100,
+    articles = document.querySelectorAll('#timeline article');
+  for (var i = 0; i < articles.length; i++) {
+    if (leftColumnHeight > rightColumnHeight) {
+      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
+    } else {
+      leftColumnHeight += articles[i].offsetHeight;
     }
   }
+  }
+  else {
+    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
+  }};
+
+  /*커다란 화면에서 화면 비율 조정에 따라 다시 right class가 나와야 할 수도 있으므로 추가함*/
+  const mediaQuery = window.matchMedia('screen and (max-width: 768px)');
+  mediaQuery.addEventListener('change', function() {
+  if (mediaQuery.matches) {
+    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
+  }
+  else {
+    var leftColumnHeight = 0,
+    rightColumnHeight = 100,
+    articles = document.querySelectorAll('#timeline article');
+  for (var i = 0; i < articles.length; i++) {
+    if (leftColumnHeight > rightColumnHeight) {
+      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
+    } else {
+      leftColumnHeight += articles[i].offsetHeight;
+    }
+  }
+  }
+});
+</script>
+</body>
+</html>
