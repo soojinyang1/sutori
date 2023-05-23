@@ -186,7 +186,7 @@ body{
 
 #icon + label{
   display: block;
-  width: 60px;
+  width: 30px;
   height: 40px;
   cursor: pointer;
   position: relative;
@@ -199,6 +199,7 @@ body{
   background:skyblue;
   border-radius: 30px;
   position:absolute;
+  margin-left: -10px;
   z-index: 2;
 }
 
@@ -236,14 +237,38 @@ body{
 }
 
 #header{
-  width: 300px;
-  height: 100%;
-  padding: 60px 25px 25px 25px;
+  top:43%; 
+  width: auto;
+  height: auto;
+  padding: 10px 20px 25px 5px;
+  border:1px solid #ccc; 
   box-sizing:border-box;
   left:-300px;
-  z-index:1;
   position:fixed; 
+  background-color:#fff; 
 }
+
+#header ul li{
+  list-style: none;
+  padding: 10px 0px;
+
+}
+
+#header ul li a{ 
+  text-decoration: none;
+  color:#595D61;
+  font-size: 19px;
+}
+
+#header ul li a:hover{ 
+  text-decoration: none;
+  color:skyblue;
+  font-size: 19px;
+}
+
+
+
+
 
 /* MEDIA QUERIES */
 
