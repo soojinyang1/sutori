@@ -312,10 +312,14 @@ body {
     width: 100%;
   }
 
+  .explain {
+    width: 100%;
+  }
+
   #timeline article div.content {
     padding: 10px;
     margin: 10px auto;
-    width: 100%;
+    width: 90%;
   }
 
   .title {
