@@ -308,7 +308,7 @@ body {
     display: none;
   }
 
-  #timeline article content {
+  #timeline article div.content {
     margin: auto;
     width: 100%;
   }
