@@ -1,190 +1,210 @@
- div{
-  margin-top:10px;
- }
+div {
+  margin-top: 10px;
+}
 
-   #timeline {
-      display: block;
-      position: relative;
-      width: 100%;
-    }
+#timeline {
+  display: block;
+  position: relative;
+  width: 100%;
+}
 
-    #timeline article {
-      display: block;
-      position: relative;
-      float: left;
-      clear: left;      
-      width: 50%;
-    }
+#timeline article {
+  display: block;
+  position: relative;
+  float: left;
+  clear: left;
+  width: 50%;
+}
 
-    #timeline article.right {
-      float: right;
-      clear: right;  
-    }
+#timeline article.right {
+  float: right;
+  clear: right;
+}
+
+.explain {
+  display: block;
+  font-size: 18px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid none;
+  background-color: white;
+  color: #595d61;
+  width: 650px;
+  height: auto;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.content div a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /*제목 태그*/
-.title{
-  display:inline-block; 
-  font-size:40px; 
-  margin-top:30px; 
-  margin-bottom:30px; 
-  padding: 20px; 
-  border:1px solid none; 
-  background-color:white;color: #595D61; 
-  width:100%; 
-  z-index:1;
+.title {
+  display: inline-block;
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid none;
+  background-color: white;
+  color: #595d61;
+  width: 100%;
+  z-index: 1;
   text-align: center;
 }
+
 /* LINE */
-	#timeline:after {
-		content: " ";
-		display: block;
-		clear: both;
-    z-index: -1;
-	}
+#timeline:after {
+  content: " ";
+  display: block;
+  clear: both;
+  z-index: -1;
+}
 
-	#timeline:before {
-		content: " ";
-    position: absolute;    
-    top: 40px;
-		bottom: 0px;
-		left: 50%;		
-		width: 3px;
-    margin-left: -1.5px;   
-		background-color: #def;
-    z-index: -1;
-	}
-
+#timeline:before {
+  content: " ";
+  position: absolute;
+  top: 40px;
+  bottom: 0px;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  background-color: #def;
+  z-index: -1;
+}
 
 /* CONTENT BOX */
-	#timeline article div.content{
-		position: relative; 
- 		float: right;       
-		border: 1px solid #d4d4d4;
-		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);    
-    width: 60%;   
-    padding: 10px;
-    margin-right: 80px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-	}
+#timeline article div.content {
+  position: relative;
+  float: right;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  width: 60%;
+  padding: 10px;
+  margin-right: 80px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
-  #timeline article.right div.content{
-       float: left;      
-       margin-right: 0; 
-       margin-left: 80px;      
-    }
+#timeline article.right div.content {
+  float: left;
+  margin-right: 0;
+  margin-left: 80px;
+}
 
-	#timeline article figure, #timeline article iframe, #timeline article video{
-		width: 100%!important;
-        padding: 0!important;
-	}
+#timeline article figure,
+#timeline article iframe,
+#timeline article video {
+  width: 100% !important;
+  padding: 0 !important;
+}
 
+/* ARROWS */
+#timeline article div.content:before {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc; /*왼쪽 박스에 붙음 */
+  border-right: 0 solid #ccc; /*오른쪽 박스에 붙음 */
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
 
-    /* ARROWS */
-	#timeline article div.content:before {
-        position: absolute;
-        top: 10px;
-        right: -15px;
-        display: inline-block;
-        border-top: 15px solid transparent;
-        border-left: 15px solid #ccc; /*왼쪽 박스에 붙음 */
-        border-right: 0 solid #ccc;  /*오른쪽 박스에 붙음 */
-        border-bottom: 15px solid transparent;  
-        content: " ";
-	}
-    
-    /*이 부분이 없으면 오른쪽 상자의 오른쪽 화살표가 없어지고 왼쪽으로 화살표가 붙게 됨 이유가 뭘까.....*/    
-    #timeline article.right div.content:before {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -15px;
-        right: auto;
-     }
+/*이 부분이 없으면 오른쪽 상자의 오른쪽 화살표가 없어지고 왼쪽으로 화살표가 붙게 됨 이유가 뭘까.....*/
+#timeline article.right div.content:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
 
-    #timeline article div.content:after {
-        position: absolute;
-        top: 11px;
-        right: -13.7px;
-        display: inline-block;
-        border-top: 14px solid transparent;
-        border-left: 14px solid #fff;  /*왼쪽 박스 말풍선 색깔 */
-        border-right: 0 solid #fff;   /*오른쪽 박스 말풍선 색깔 */
-        border-bottom: 14px solid transparent;
-        content: " ";		
-        }
+#timeline article div.content:after {
+  position: absolute;
+  top: 11px;
+  right: -13.7px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff; /*왼쪽 박스 말풍선 색깔 */
+  border-right: 0 solid #fff; /*오른쪽 박스 말풍선 색깔 */
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
 
-     /*이 부분이 없으면 오른쪽 상자에 칠한 하얀 색이 왼쪽으로 붙게 됨.. 이유가 뭘까.....*/      
-    #timeline article.right div.content:after {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -14px;
-        right: auto;
-        }
-
+/*이 부분이 없으면 오른쪽 상자에 칠한 하얀 색이 왼쪽으로 붙게 됨.. 이유가 뭘까.....*/
+#timeline article.right div.content:after {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -14px;
+  right: auto;
+}
 
 /* BADGE --동그란 원 */
-	#timeline article .badge a {
-		text-decoration: none;
-		color: inherit;
-	}
+#timeline article .badge a {
+  text-decoration: none;
+  color: inherit;
+}
 
-	#timeline article .badge {
-        position: absolute;
-        top: 50px;
-		right: 5px;
-		z-index: 100; 
-    
-		width: 50px;
-		height: 50px;
-    
-		line-height: 50px;
-		font-size: 1.2em;
-		text-align: center;
-		
-		cursor: default;
-	}
-	
-    #timeline article.right .badge{
-		left: 5px;
-	}
+#timeline article .badge {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  z-index: 100;
 
-	#timeline article .badge:after{
-		content: ' ';
-		display: block;				
-		position: absolute;
-		top: 17px;
-		right: -13px;
-    	z-index: 10;
-    
-		width: 8px;
-		height: 8px;
-    
-		background: #fff;
-		border-radius: 10px;
-		border: 4px solid #eeeeee;
-	}
-	
-    #timeline article.right > .badge:after{
-		left: -13px;
-	}
+  width: 50px;
+  height: 50px;
+
+  line-height: 50px;
+  font-size: 1.2em;
+  text-align: center;
+
+  cursor: default;
+}
+
+#timeline article.right .badge {
+  left: 5px;
+}
+
+#timeline article .badge:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 17px;
+  right: -13px;
+  z-index: 10;
+
+  width: 8px;
+  height: 8px;
+
+  background: #fff;
+  border-radius: 10px;
+  border: 4px solid #eeeeee;
+}
+
+#timeline article.right > .badge:after {
+  left: -13px;
+}
 
 /*햄버거 메뉴바*/
-body{
+body {
   display: flex;
   flex-direction: row;
 }
 
-#hamburger{
-  position:fixed; 
-  top:50%; 
-  z-index:10; 
+#hamburger {
+  position: fixed;
+  top: 50%;
+  z-index: 10;
 }
 
-#icon{
-  display: none; 
+#icon {
+  display: none;
 }
 
-#icon + label{
+#icon + label {
   display: block;
   width: 30px;
   height: 40px;
@@ -192,170 +212,170 @@ body{
   position: relative;
 }
 
-#icon + label > span{
+#icon + label > span {
   display: block;
   width: 100%;
   height: 5px;
-  background:skyblue;
+  background: skyblue;
   border-radius: 30px;
-  position:absolute;
+  position: absolute;
   margin-left: -10px;
   z-index: 2;
 }
 
 /*햄버거 위치 잡기*/
-#icon + label > span:nth-child(1){
+#icon + label > span:nth-child(1) {
   top: 0px;
 }
 
-#icon + label > span:nth-child(2){
+#icon + label > span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%);
 }
 
-#icon + label > span:nth-child(3){
+#icon + label > span:nth-child(3) {
   bottom: 0px;
 }
 
 /*눌렀을 때 햄버거 회전*/
-#icon:checked + label > span:nth-child(1){
+#icon:checked + label > span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-#icon:checked + label > span:nth-child(2){
+#icon:checked + label > span:nth-child(2) {
   display: none;
 }
 
-#icon:checked+ label > span:nth-child(3){
+#icon:checked + label > span:nth-child(3) {
   bottom: 50%;
   transform: translateY(50%) rotate(-45deg);
 }
 
-#icon:checked ~ #header{
+#icon:checked ~ #header {
   left: 0px;
 }
 
-#header{
-  top:43%; 
+#header {
+  top: 43%;
   width: auto;
   height: auto;
   padding: 10px 20px 25px 5px;
-  border:1px solid #ccc; 
-  box-sizing:border-box;
-  left:-300px;
-  position:fixed; 
-  background-color:#fff; 
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  left: -300px;
+  position: fixed;
+  background-color: #fff;
 }
 
-#header ul li{
+#header ul li {
   list-style: none;
   padding: 10px 0px;
-
 }
 
-#header ul li a{ 
+#header ul li a {
   text-decoration: none;
-  color:#595D61;
+  color: #595d61;
   font-size: 19px;
 }
 
-#header ul li a:hover{ 
+#header ul li a:hover {
   text-decoration: none;
-  color:skyblue;
+  color: skyblue;
   font-size: 19px;
 }
-
-
-
-
 
 /* MEDIA QUERIES */
 
-    @media (max-width: 767px) {
-      
-      #timeline:after{
-        display: none;
-      }
+@media (max-width: 767px) {
+  #timeline:after {
+    display: none;
+  }
 
-      #timeline:before{
-        display: none;
-      }
+  #timeline:before {
+    display: none;
+  }
 
-      #timeline article .badge{
-        display: none;
-     }
-    
-      #timeline article div.content:before{
-        display: none;
-     }
- 
-     #timeline article div.content:after{
-      display: none;
-    }
+  #timeline article .badge {
+    display: none;
+  }
 
-     #timeline article {     
-      width: 100%;
-    }
-    .title{
-      font-size:25px; 
-    }
-    }
+  #timeline article div.content:before {
+    display: none;
+  }
+
+  #timeline article div.content:after {
+    display: none;
+  }
+
+  #timeline article content {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+}
 
 /*공유하기*/
-.overlay{
-  border:rgb(155, 153, 153) 1px solid;
+.overlay {
+  border: rgb(155, 153, 153) 1px solid;
   padding: 5px;
   width: 100px;
   height: auto;
+  display: none;
 }
 
-button{
+.overlay li {
+  list-style: none;
+}
+
+.overlay li a {
+  text-decoration: none;
+  color: #595d61;
+}
+
+.overlay li a:hover {
+  text-decoration: none;
+  color: skyblue;
+}
+
+button {
   border: 0;
-  outline:0;
+  outline: 0;
   text-align: left;
-  color:none;
+  color: none;
   background-color: transparent;
   font-size: 16px;
   margin-top: 10px;
 }
 
-button:hover{
-  color:skyblue;
+button:hover {
+  color: skyblue;
 }
 
-#fb::before{
-  content:'\f052'; 
+#fb::before {
+  content: "\f052";
   font-family: fontello;
-  margin-left:4px;
+  margin-left: 4px;
   padding-right: 0;
 }
 
-#fb{
+#fb {
   margin-left: -2px;
 }
 
-#link::before{
-  content:'\f07b'; 
+#link::before {
+  content: "\f07b";
   font-family: fontello;
 }
 
-#insta::before{
-  content:'\f05d '; 
+#insta::before {
+  content: "\f05d ";
   font-family: fontello;
 }
 
-#twitter::before{
-  content:'\f058'; 
+#twitter::before {
+  content: "\f058";
   font-family: fontello;
 }
-
-
-  @media screen and (max-width: 700px){
-    .box{
-      width: 70%;
-    }
-    .popup{
-      width: 70%;
-    }
-  }
