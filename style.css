@@ -308,8 +308,17 @@ body {
     display: none;
   }
 
+  #timeline {
+    width: 100%;
+  }
+
+  #timeline article {
+    width: 100%;
+  }
+
   #timeline article div.content {
-    margin: auto;
+    padding: 10px;
+    margin: 10px auto;
     width: 100%;
   }
 
