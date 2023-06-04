@@ -1,7 +1,3 @@
-div {
-  margin-top: 10px;
-}
-
 #timeline {
   display: block;
   position: relative;
@@ -35,9 +31,43 @@ div {
   word-break: keep-all;
 }
 
+.explain .title {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .content div a {
   text-decoration: none;
   color: inherit;
+}
+
+.item_title {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 0;
+  color: #595d61;
+}
+
+.item_sub_title {
+  margin-top: 10px;
+  padding: 0;
+  color: #595d61;
+}
+
+.item_inner_title {
+  display: inline;
+  margin-top: 5px;
+  padding: 0;
+  color: #595d61;
+  font-weight: bold;
+}
+
+.reference div {
+  text-decoration: none;
+  color: #00ccff;
+  margin-top: 2px;
+  padding: 0;
 }
 
 /*제목 태그*/
@@ -330,10 +360,17 @@ body {
 /*공유하기*/
 .overlay {
   border: rgb(155, 153, 153) 1px solid;
-  padding: 5px;
   width: 100px;
   height: auto;
   display: none;
+  position: absolute;
+  top: 90%;
+  left: 24%;
+  background-color: #fff;
+}
+
+#timeline article.right .overlay {
+  left: 15%;
 }
 
 .overlay li {
@@ -364,28 +401,30 @@ button:hover {
   color: skyblue;
 }
 
-#fb::before {
+.button1 {
+  cursor: pointer;
+}
+
+.button2 {
+  margin: 0;
+}
+.fb::before {
   content: "\f052";
   font-family: fontello;
   margin-left: 4px;
   padding-right: 0;
 }
 
-#fb {
+.fb {
   margin-left: -2px;
 }
 
-#link::before {
+.link::before {
   content: "\f07b";
   font-family: fontello;
 }
 
-#insta::before {
-  content: "\f05d ";
-  font-family: fontello;
-}
-
-#twitter::before {
+.twitter::before {
   content: "\f058";
   font-family: fontello;
 }

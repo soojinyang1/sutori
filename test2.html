@@ -1,359 +1,964 @@
 <!DOCTYPE html>
-<html lang="ko" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CodePen - Timeline: 2-column fluid masonry layout</title>
-  <style>
-   #timeline {
-      display: block;
-      position: relative;
-      width: 100%;
-    }
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodePen - Timeline: 2-column fluid masonry layout</title>
+    <link rel="stylesheet" href="fontello/css/fontello.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
 
-    #timeline article {
-      display: block;
-      position: relative;
-      float: left;
-      clear: left;      
-      width: 50%;
-    }
+  <body>
+    <!--햄버거 메뉴바 만들기-->
+    <div id="hamburger">
+      <input type="checkbox" id="icon" />
+      <label for="icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    #timeline article.right {
-      float: right;
-      clear: right;  
-    }
-
-/*제목 태그*/
-.title{
-  display:inline-block; 
-  font-size:40px; 
-  margin-top:30px; 
-  margin-bottom:30px; 
-  padding: 20px; 
-  border:1px solid none; 
-  background-color:white;color: #595D61; 
-  width:100%; 
-  z-index:1;
-  text-align: center;
-}
-/* LINE */
-	#timeline:after {
-		content: " ";
-		display: block;
-		clear: both;
-    z-index: -1;
-	}
-
-	#timeline:before {
-		content: " ";
-    position: absolute;    
-    top: 40px;
-		bottom: 0px;
-		left: 50%;		
-		width: 3px;
-    margin-left: -1.5px;   
-		background-color: #def;
-    z-index: -1;
-	}
-
-
-/* CONTENT BOX */
-	#timeline article div.content{
-		position: relative; 
- 		float: right;       
-		border: 1px solid #d4d4d4;
-		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);    
-    width: 60%;   
-    padding: 10px;
-    margin-right: 80px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-	}
-
-  #timeline article.right div.content{
-       float: left;      
-       margin-right: 0; 
-       margin-left: 80px;      
-    }
-
-	#timeline article figure, #timeline article iframe, #timeline article video{
-		width: 100%!important;
-        padding: 0!important;
-	}
-
-
-    /* ARROWS */
-	#timeline article div.content:before {
-        position: absolute;
-        top: 10px;
-        right: -15px;
-        display: inline-block;
-        border-top: 15px solid transparent;
-        border-left: 15px solid #ccc; /*왼쪽 박스에 붙음 */
-        border-right: 0 solid #ccc;  /*오른쪽 박스에 붙음 */
-        border-bottom: 15px solid transparent;  
-        content: " ";
-	}
-    
-    /*이 부분이 없으면 오른쪽 상자의 오른쪽 화살표가 없어지고 왼쪽으로 화살표가 붙게 됨 이유가 뭘까.....*/    
-    #timeline article.right div.content:before {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -15px;
-        right: auto;
-     }
-
-    #timeline article div.content:after {
-        position: absolute;
-        top: 11px;
-        right: -13.7px;
-        display: inline-block;
-        border-top: 14px solid transparent;
-        border-left: 14px solid #fff;  /*왼쪽 박스 말풍선 색깔 */
-        border-right: 0 solid #fff;   /*오른쪽 박스 말풍선 색깔 */
-        border-bottom: 14px solid transparent;
-        content: " ";		
-        }
-
-     /*이 부분이 없으면 오른쪽 상자에 칠한 하얀 색이 왼쪽으로 붙게 됨.. 이유가 뭘까.....*/      
-    #timeline article.right div.content:after {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -14px;
-        right: auto;
-        }
-
-
-/* BADGE --동그란 원 */
-	#timeline article .badge a {
-		text-decoration: none;
-		color: inherit;
-	}
-
-	#timeline article .badge {
-        position: absolute;
-        top: 50px;
-		right: 5px;
-		z-index: 100; 
-    
-		width: 50px;
-		height: 50px;
-    
-		line-height: 50px;
-		font-size: 1.2em;
-		text-align: center;
-		
-		cursor: default;
-	}
-	
-    #timeline article.right .badge{
-		left: 5px;
-	}
-
-	#timeline article .badge:after{
-		content: ' ';
-		display: block;				
-		position: absolute;
-		top: 17px;
-		right: -13px;
-    	z-index: 10;
-    
-		width: 8px;
-		height: 8px;
-    
-		background: #fff;
-		border-radius: 10px;
-		border: 4px solid #eeeeee;
-	}
-	
-    #timeline article.right > .badge:after{
-		left: -13px;
-	}
-
-/*햄버거 메뉴바*/
-#static{
-  position: fixed;
-  top: 50%;
-}
-
-#icon{
-  display: none; 
-}
-
-#icon + label{
-  display: block;
-  width: 60px;
-  height: 40px;
-  cursor: pointer;
-  position: relative;
-}
-
-#icon + label > span{
-  display: block;
-  width: 100%;
-  height: 5px;
-  background:skyblue;
-  border-radius: 30px;
-  position:absolute;
-  z-index: 2;
-}
-
-/*햄버거 위치 잡기*/
-#icon + label > span:nth-child(1){
-  top: 0px;
-}
-
-#icon + label > span:nth-child(2){
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#icon + label > span:nth-child(3){
-  bottom: 0px;
-}
-
-/*눌렀을 때 햄버거 회전*/
-#icon:checked + label > span:nth-child(1){
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-#icon:checked + label > span:nth-child(2){
-  display: none;
-}
-
-#icon:checked+ label > span:nth-child(3){
-  bottom: 50%;
-  transform: translateY(50%) rotate(-45deg);
-}
-
-#icon:checked ~ #header{
-  left: 0px;
-}
-
-#header{
-  width: 300px;
-  height: 100%;
-  padding: 60px 25px 25px 25px;
-  box-sizing:border-box;
-  left:-300px;
-  z-index:1;
-  position:fixed; 
-}
-  </style>
-
-</head>
-<body>
-<!--햄버거 메뉴바 만들기-->
-<div id="static">
-  <input type="checkbox" id="icon">
-  <label for="icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <div id="header">
-    <ul>
-      <li><a href="#">menu1</a></li>
-      <li><a href="#">menu2</a></li>
-      <li><a href="#">menu3</a></li>
-      <li><a href="#">menu4</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<section id="timeline" >
-  <div class="explain" style="border:1px solid none; background-color:white;color: #595D61; width:100%; height:200px; z-index:1;text-align: center;">
-    <p class="title"> 
-        시인 김수영, 아카이브로 만나다
-    </p>
-    <p> 
-        연세대학교 윤동주기념관 Story I
-    </p>
- </div>
- <p class="title"> 
-  시인 김수영
-</p>
-  <article>
-    <div class="badge">
-      <a>
-        1981
-      </a>
-    </div>  
-    <div class="content">
-        <div> 
-            <img  src="images/aa.jpg" width="100%">
-        </div>
-        <div>
-            사진 설명 
-        </div>
-        <div>
-          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
-        </div>
+      <div id="header">
+        <ul>
+          <li><a href="#title1">2022년</a></li>
+          <li><a href="#title2">2021년</a></li>
+        </ul>
+      </div>
     </div>
-  </article>  
-  <article>
-    <div class="badge">
-      <a>
-        1981
-      </a>
-    </div>  
-    <div class="content">
-        <div> 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/sCcty_fyaX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <div>
-          올해는 한국문학의 모더니스트이자 대표적인 참여시인으로 꼽히는 김수영 시인(1921~1968)의 서거 50주년
-        </div>
-        <div>
-          ** 관련 기록 : <a href="item/item1.html" style="text-decoration: none;">item1</a>
-        </div>
-    </div>
-  </article> 
-</section>
-<script>
 
- /*right클래스가 일정 너비 이하에서는 아예 만들어지지 않게 코드 짬*/
-  const mediaQueryList = window.matchMedia('screen and (min-width: 767px)');
-  window.onload = function layout() {
-    if (mediaQueryList.matches) {
-  var leftColumnHeight = 0,
-    rightColumnHeight = 100,
-    articles = document.querySelectorAll('#timeline article');
-  for (var i = 0; i < articles.length; i++) {
-    if (leftColumnHeight > rightColumnHeight) {
-      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
-    } else {
-      leftColumnHeight += articles[i].offsetHeight;
-    }
-  }
-  }
-  else {
-    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
-  }};
+    <!--타임라인 시작-->
+    <section id="timeline">
+      <!--맨 위의 설명-->
+      <div class="explain">
+        <p class="title">국가간 청소년 교류</p>
+        <p>
+          국가간 청소년교류는 양국 청소년 담당 부처 또는 청소년 관련기관과의
+          약정에 의해 매년 정기적으로 실시되는 사업으로 청소년 교류를 통한
+          국가간 우의 증진 및 협력기반 조성, 글로벌 리더로서 역량 개발 등을 위해
+          1979년부터 초청 및 파견 사업을 실시하고 있습니다
+        </p>
+      </div>
 
-  /*커다란 화면에서 화면 비율 조정에 따라 다시 right class가 나와야 할 수도 있으므로 추가함*/
-  const mediaQuery = window.matchMedia('screen and (max-width: 768px)');
-  mediaQuery.addEventListener('change', function() {
-  if (mediaQuery.matches) {
-    document.querySelectorAll('.right').forEach(element => element.classList.remove('right'));
-  }
-  else {
-    var leftColumnHeight = 0,
-    rightColumnHeight = 100,
-    articles = document.querySelectorAll('#timeline article');
-  for (var i = 0; i < articles.length; i++) {
-    if (leftColumnHeight > rightColumnHeight) {
-      rightColumnHeight += articles[i].classList.add('right') || articles[i].offsetHeight;
-    } else {
-      leftColumnHeight += articles[i].offsetHeight;
-    }
-  }
-  }
-});
-</script>
-</body>
+      <!--I-->
+      <p class="title" id="title1">2022년</p>
+      <!--I-1-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-1.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-인도네시아 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 6. 30-7. 1, 2022. 7. 15.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                19명(청소년 11명, 통역 8명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-011-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-011-7] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item1">
+              <a href="#" onclick="clip();" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-2-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <iframe
+              width="560"
+              height="350"
+              src="https://www.youtube.com/embed/sCcty_fyaX0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-몽골 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 7. 21. - 7. 22., 2022. 8. 5.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                9명(청소년 7명, 통역 2명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-012-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-012-7] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay" id="popup">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item2">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-3-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-2.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-베트남 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 7. 28. - 7. 29., 2022. 8. 12.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                10명(청소년 8명, 통역 2명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-013-1] 사진보기</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item3">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-4-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-3.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-말레이시아 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 8. 13. - 8. 14., 2022. 8. 27.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                20명(청소년 16명, 통역 4명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-014-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-014-8] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item4">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-5-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-1.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-브루나이 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 9. 15. - 9. 16., 2022. 9. 30.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                10명(청소년 8명, 통역 2명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-016-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-016-7] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item5">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-6-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-4.webp" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-싱가포르 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 8. 27. - 8. 28., 2022. 9. 2.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                22명(청소년 14명, 통역 8명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-015-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-015-7] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item6">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-7-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-5.webp" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">
+              한-사우디아라비아 온라인 국가간 청소년교류
+            </div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 9. 22. - 9. 23., 2022. 10. 7.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                9명(청소년 7명, 통역 2명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-018-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-018-8] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item7">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--I-8-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-6.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-캄보디아 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 9. 15. - 9. 16., 2022. 9. 30.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                19명(청소년 11명, 통역 8명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-017-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-017-8] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <!--부모-->
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item8">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!-- 중간에 들어가는 말 -- display:inline-block으로 하면 라인의 처음부터 끝까지 가게 됨-->
+      <!--II-->
+      <p class="title" id="title2">2021년</p>
+      <!--II-1-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <img src="images/YC-011-7.jpeg" width="100%" />
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-일본 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2022. 11. 12. - 11. 13., 2022. 11. 26.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                19명(청소년 11명, 통역 8명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-019-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-019-8] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <!--부모-->
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item9">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--II-2-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <a
+              href="https://www.sutori.com/en/story/siin-gimsuyeong-akaibeuro-mannada--LCFGGoPWUU4qmAJNRi2Q4F1j"
+              ><img src="images/YC-011-2.jpeg" width="100%"
+            /></a>
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-인도네시아 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                2021. 7. 7.-7. 9.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                21명(청소년 13명, 통역 8명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-002-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-002-2] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item10">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+
+      <!--II-3-->
+      <article>
+        <div class="badge">
+          <a> 1981 </a>
+        </div>
+        <div class="content">
+          <div>
+            <video style="max-height: 500px" controls loop muted>
+              <source src="images/dd.mp4" />
+            </video>
+          </div>
+          <div class="item_explain">
+            <div class="item_title">한-베트남 온라인 국가간 청소년교류</div>
+            <div class="item_sub_title">
+              <div>
+                <div class="item_inner_title">사업기간</div>
+                (1·2차) 2021. 8. 12.-13. (3차) 2021. 8. 27.
+              </div>
+              <div>
+                <div class="item_inner_title">참가인원</div>
+                12명(청소년 8명, 통역 4명)
+              </div>
+              <div>
+                <div class="item_inner_title">주요내용</div>
+                문화교류(아이스브레이킹,문화소개), 토의활동, 공동과제 수행,
+                최종발표 등
+              </div>
+            </div>
+          </div>
+          <div class="reference">
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
+                >[기록건 YC-003-1] 사진보기</a
+              >
+            </div>
+            <div>
+              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexd/list.do"
+                >[기록건 YC-003-2] 활동보고서</a
+              >
+            </div>
+          </div>
+          <button class="button1">Share</button>
+        </div>
+
+        <!--공유버튼-->
+        <div class="overlay">
+          <button class="button2">&times;</button>
+          <div class=" ">
+            <li class="webhare" id="item11">
+              <a href="#" onclick="clip(this);" alt="Share"
+                ><span class="link"> Link</span></a
+              >
+            </li>
+            <li class="shareFb">
+              <a
+                href="#"
+                onclick="clip1(); return false;"
+                alt="Share on Facebook"
+                ><span class="fb"> Facebook</span></a
+              >
+            </li>
+            <li class="shareTwitter">
+              <a
+                href="#"
+                onclick="clip2(); return false;"
+                alt="Share on Twitter"
+                ><span class="twitter"> Twitter</span></a
+              >
+            </li>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <script>
+      /*right클래스가 일정 너비 이하에서는 아예 만들어지지 않게 코드 짬*/
+      const mediaQueryList = window.matchMedia("screen and (min-width: 767px)");
+      window.onload = function layout() {
+        if (mediaQueryList.matches) {
+          var leftColumnHeight = 0,
+            rightColumnHeight = 100,
+            articles = document.querySelectorAll("#timeline article");
+          for (var i = 0; i < articles.length; i++) {
+            if (leftColumnHeight > rightColumnHeight) {
+              rightColumnHeight +=
+                articles[i].classList.add("right") || articles[i].offsetHeight;
+            } else {
+              leftColumnHeight += articles[i].offsetHeight;
+            }
+          }
+        } else {
+          document
+            .querySelectorAll(".right")
+            .forEach((element) => element.classList.remove("right"));
+        }
+      };
+
+      /*커다란 화면에서 화면 비율 조정에 따라 다시 right class가 나와야 할 수도 있으므로 추가함*/
+      const mediaQuery = window.matchMedia("screen and (max-width: 768px)");
+      mediaQuery.addEventListener("change", function () {
+        if (mediaQuery.matches) {
+          document
+            .querySelectorAll(".right")
+            .forEach((element) => element.classList.remove("right"));
+        } else {
+          var leftColumnHeight = 0,
+            rightColumnHeight = 100,
+            articles = document.querySelectorAll("#timeline article");
+          for (var i = 0; i < articles.length; i++) {
+            if (leftColumnHeight > rightColumnHeight) {
+              rightColumnHeight +=
+                articles[i].classList.add("right") || articles[i].offsetHeight;
+            } else {
+              leftColumnHeight += articles[i].offsetHeight;
+            }
+          }
+        }
+      });
+
+      /*공유하기*/
+      $(document).ready(function () {
+        //현재 마크업 기준으로 클릭할 요소의 부모 옆에 있는 요소(팝업) 선택
+        $(".button1").click(function () {
+          $(this).parent().next().css("display", "block");
+        });
+      });
+
+      $(document).ready(function () {
+        //닫기 버튼 기준 부모 div(팝업)이 닫히도록 변경
+        $(".button2").click(function () {
+          $(this).parent().css("display", "none");
+        });
+      });
+
+      $(document).ready(function () {
+        $(".webhare").each(function () {
+          $(this).click(clip);
+        });
+      });
+
+      function clip() {
+        var url = "";
+        var id_check = "";
+        var textarea = document.createElement("textarea");
+
+        document.body.appendChild(textarea);
+
+        id_check = $(this).attr("id"); //id값 가져오기
+        console.log(id_check);
+
+        url = id_check + ".html";
+        textarea.value = url;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        alert("URL이 복사되었습니다.");
+      }
+
+      $(document).ready(function () {
+        //본문 함수 사용하지 않고 바로 실행
+        $(".shareFb").click(function () {
+          const pageUrl = "http://127.0.0.1:5501/index.html";
+          window.open("http://www.facebook.com/sharer/sharer.php?u=" + pageUrl);
+        });
+      });
+
+      function clip2() {
+        //본문 함수 사용할 경우
+        $(".shareTwitter").click(function () {
+          const pageUrl = "http://127.0.0.1:5501/index.html";
+          window.open("https://twitter.com/intent/tweet?text=" + pageUrl);
+        });
+      }
+
+      /*
+      원래 코드
+      function clip1() {
+      const btnShareFb = document.querySelector(".shareFb");
+
+      btnShareFb.addEventListener("click", () => {
+          const pageUrl = "http://127.0.0.1:5501/index.html";
+          window.open("http://www.facebook.com/sharer/sharer.php?u=" + pageUrl);
+        });
+      }
+
+      function clip2() {
+        const btnShareTwitter = document.querySelector(".shareTwitter");
+
+        btnShareTwitter.addEventListener("click", () => {
+          const pageUrl = "http://127.0.0.1:5501/index.html";
+          window.open("https://twitter.com/intent/tweet?text=" + pageUrl);
+        });
+      } */
+    </script>
+  </body>
 </html>
