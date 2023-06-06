@@ -344,11 +344,13 @@ body {
 
   #timeline .explain .title {
     font-size: 25px;
+    width: 90%;
     margin: auto; /*가운데 정렬*/
   }
 
   #timeline .explain .explain-content {
     padding: 10px;
+    width: 90%;
     margin: auto; /*가운데 정렬*/
   }
 
