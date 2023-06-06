@@ -342,13 +342,13 @@ body {
     width: 100%;
   }
 
-  #timeline .explain .title {
+  #timeline div.explain p.title {
     font-size: 25px;
     width: 90%;
     margin: auto; /*가운데 정렬*/
   }
 
-  #timeline .explain .explain-content {
+  #timeline div.explain p.explain-content {
     padding: 10px;
     width: 90%;
     margin: auto; /*가운데 정렬*/
