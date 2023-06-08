@@ -17,7 +17,7 @@
   clear: right;
 }
 
-.explain {
+#timeline div.top p.explain {
   display: block;
   font-size: 18px;
   margin: 30px auto;
@@ -29,11 +29,7 @@
   height: auto;
   text-align: center;
   word-break: keep-all;
-}
-
-.explain .title {
-  width: 100%;
-  margin: 0 auto;
+  z-index: 100000;
 }
 
 .content div a {
@@ -323,7 +319,7 @@ body {
   }
 
   #timeline:before {
-    display: none;
+    z-index: -10000000;
   }
 
   #timeline article .badge {
@@ -339,43 +335,84 @@ body {
   }
 
   #timeline article {
-    width: 100%;
+    margin-top: 25px;
+    width: 90%;
+    z-index: 100;
+    margin-left: 50%;
+    transform: translate(-50%);
   }
 
-  #timeline div.explain p.title {
-    font-size: 25px;
+  #timeline div.top p.explain {
     width: 90%;
-    margin: auto; /*가운데 정렬*/
+    margin-left: 0;
+    transform: translate(0);
   }
 
-  #timeline div.explain p.explain-content {
-    padding: 10px;
-    width: 90%;
-    margin: auto; /*가운데 정렬*/
+  .title {
+    font-size: 30px;
+    width: 50%;
+    margin-left: 50%;
+    transform: translate(-50%);
   }
 
   #timeline article div.content {
     padding: 10px;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 90%;
+    background-color: #fff;
+  }
+
+  #timeline article div.content div.popwrap div.overlay {
+    z-index: 1000000000000000000000000000000000000000;
+  }
+  .popwrap {
+    z-index: 10000000002;
+    color: antiquewhite;
   }
 }
 
 /*공유하기*/
 .overlay {
-  border: rgb(155, 153, 153) 1px solid;
+  border: 1px solid #d4d4d4;
   width: 100px;
   height: auto;
   display: none;
   position: absolute;
   background-color: #fff;
-  top: 30px;
-  left: -10px;
-  z-index: 100;
+  top: 34px;
+  left: -21px;
+  z-index: 10000000000;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+
+.overlay:after,
+.overlay:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.overlay:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #fff;
+  border-width: 8px;
+  margin-left: -8px;
+}
+.overlay:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #d4d4d4;
+  border-width: 9px;
+  margin-left: -9px;
 }
 
 .overlay li {
   list-style: none;
+  margin-left: 4px;
 }
 
 .overlay li a {

@@ -1,153 +1,44 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CodePen - Timeline: 2-column fluid masonry layout</title>
-    <link rel="stylesheet" href="fontello/css/fontello.css" />
+    <title>Test 1</title>
     <style>
+      .arrow_box {
+        margin-top: 100px;
+        position: relative;
+        background: #88b7d5;
+        border: 4px solid #c2e1f5;
+        width: 300px;
+        height: 200px;
+      }
+      .arrow_box:after,
+      .arrow_box:before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
 
+      .arrow_box:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-bottom-color: #88b7d5;
+        border-width: 30px;
+        margin-left: -30px;
+      }
+      .arrow_box:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-bottom-color: #c2e1f5;
+        border-width: 36px;
+        margin-left: -36px;
+      }
     </style>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   </head>
 
   <body>
-    <section id="timeline">
-      <article>
-        <div class="content">
-          <div>
-            <img
-              src="https://images.freeimages.com/365/images/previews/af5/funny-cat-vector-illustration-25725.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="item_explain">
-            <div class="item_title">온라인 국가간 청소년교류</div>
-          </div>
-          <div class="reference">
-            <div>
-              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
-                >[기록건 YC-011-1] 사진보기</a
-              >
-            </div>
-          </div>
-          <button class="button1">Share</button>
-        </div>
-
-        <!--공유버튼-->
-        <div class="overlay" id="popup">
-          <button class="button2">&times;</button>
-          <div class=" ">
-            <li class="web_share" id="item1">
-              <a href="#" onclick="clip();" alt="Share on Facebook"
-                ><span id="link"> Link</span></a
-              >
-            </li>
-          </div>
-        </div>
-      </article>
-
-      <article>
-        <div class="content">
-          <div>
-            <img
-              src="https://images.freeimages.com/365/images/previews/af5/funny-cat-vector-illustration-25725.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="item_explain">
-            <div class="item_title">온라인 국가간 청소년교류</div>
-          </div>
-          <div class="reference">
-            <div>
-              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
-                >[기록건 YC-011-1] 사진보기</a
-              >
-            </div>
-          </div>
-          <button class="button1">Share</button>
-        </div>
-
-        <!--공유버튼-->
-        <div class="overlay" id="popup">
-          <button class="button2">&times;</button>
-          <div class=" ">
-            <li class="web_share" id="item2>
-              <a href="#" onclick="clip();" alt="Share on Facebook"
-                ><span id="link"> Link</span></a
-              >
-            </li>
-          </div>
-        </div>
-      </article>
-
-      <article>
-        <div class="content">
-          <div>
-            <img
-              src="https://images.freeimages.com/365/images/previews/af5/funny-cat-vector-illustration-25725.jpg"
-              width="100%"
-            />
-          </div>
-          <div class="item_explain">
-            <div class="item_title">온라인 국가간 청소년교류</div>
-          </div>
-          <div class="reference">
-            <div>
-              <a href="https://www.youth.go.kr/iye/iye/bbs/pds/iexa/list.do"
-                >[기록건 YC-011-1] 사진보기</a
-              >
-            </div>
-          </div>
-          <button class="button1">Share</button>
-        </div>
-
-        <!--공유버튼-->
-        <div class="overlay" id="popup">
-          <button class="button2">&times;</button>
-          <div class=" ">
-            <li class="web_share" id="item3">
-              <a href="#" onclick="clip();" alt="Share on Facebook"
-                ><span id="link"> Link</span></a
-              >
-            </li>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <script>
-      /*공유하기*/
-      $(document).ready(function () {
-        $(".button1").click(function () {
-          $("#popup").css("display", "block");
-        });
-      });
-
-      $(document).ready(function () {
-        $(".button2").click(function () {
-          $("#popup").css("display", "none");
-        });
-      });
-
-      function clip() {
-        var url = "";
-        var id_check = "";
-        var textarea = document.createElement("textarea");
-
-        document.body.appendChild(textarea);
-
-        id_check = $(".web_share").attr("id"); //클릭한 버튼의 id값을 가져옴
-        console.log(id_check);
-
-        url = id_check + ".html";
-        textarea.value = url;
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-
-        alert("URL이 복사되었습니다.");
-      }
-    </script>
+    <div class="arrow_box">Test 1</div>
   </body>
 </html>
