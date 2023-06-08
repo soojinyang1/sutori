@@ -223,7 +223,7 @@ body {
 #hamburger {
   position: fixed;
   top: 50%;
-  z-index: 10;
+  z-index: 10000000000000000000000000000000000;
 }
 
 #icon {
@@ -350,7 +350,7 @@ body {
 
   .title {
     font-size: 30px;
-    width: 50%;
+    width: 90%;
     margin-left: 50%;
     transform: translate(-50%);
   }
