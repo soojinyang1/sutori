@@ -170,6 +170,52 @@ function clip2() {
 }
 
 /*
+$(document).ready(function () {
+  $("#hamburger>#line").click(function () {
+    $(this).next().toggleClass("hide");
+  });
+}); */
+
+/*
+$(document).ready(function () {
+  $("#hamburger>#line")
+    .click(function () {
+      var submenu = $(this).next();
+      if (submenu.is(":visible")) {
+        submenu.slideleft();
+      } else {
+        submenu.slideright();
+      }
+    })
+    .mouseover(function () {
+      $(this).next().slideDown();
+    });
+});
+*/
+
+$(document).ready(function () {
+  $("#hamburger>#line")
+    .click(function () {
+      $(this).next().animate(
+        {
+          width: "toggle",
+        },
+        2,
+        "swing"
+      );
+    })
+    .mouseover(function () {
+      $(this).next().css("display", "block");
+    });
+});
+
+$(document).ready(function () {
+  $(".hide").mouseleave(function () {
+    $(this).css("display", "none");
+  });
+});
+
+/*
 원래 코드
 function clip1() {
 const btnShareFb = document.querySelector(".shareFb");
