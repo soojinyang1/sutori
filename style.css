@@ -303,6 +303,7 @@ body {
 @media (max-width: 767px) {
   body {
     overflow-x: hidden;
+    position: relative;
   }
 
   #timeline:after {
