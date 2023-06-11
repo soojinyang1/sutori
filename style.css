@@ -301,6 +301,10 @@ body {
 
 /* MEDIA QUERIES */
 @media (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     overflow-x: hidden;
     position: relative;

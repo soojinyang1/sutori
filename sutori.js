@@ -209,11 +209,11 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
+/*$(document).ready(function () {
   $(".hide").on("mouseleave", function () {
     $(this).css("display", "none");
   });
-});
+}); */
 
 $(":not(.hide)").on("touchstart", function () {
   $(".hide").css("display", "none");
