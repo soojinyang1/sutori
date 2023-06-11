@@ -195,7 +195,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("#hamburger>#line")
-    .click(function () {
+    /*.click(function () {
       $(this).next().animate(
         {
           width: "toggle",
@@ -203,14 +203,14 @@ $(document).ready(function () {
         2,
         "swing"
       );
-    })
+    })*/
     .mouseover(function () {
       $(this).next().css("display", "block");
     });
 });
 
 $(document).ready(function () {
-  $(".hide").mouseleave(function () {
+  $(".hide").on("mouseleave touchend", function () {
     $(this).css("display", "none");
   });
 });
