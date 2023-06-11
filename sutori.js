@@ -215,9 +215,11 @@ $(document).ready(function () {
   });
 });
 
-$("body").on("touchstart", function () {
-  $(".hide").css("display", "none");
-});
+$("body")
+  .not(".hide")
+  .on("touchstart", function () {
+    $(".hide").css("display", "none");
+  });
 
 /*
 원래 코드
