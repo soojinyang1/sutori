@@ -81,6 +81,13 @@ $(document).ready(function () {
   });
 });
 
+$(document).mouseup(function (e) {
+  var overlay = $(".overlay");
+  if (overlay.has(e.target).length === 0) {
+    overlay.hide();
+  }
+});
+
 /*일반 자바스크립트로 작성할 경우 : 이럴 경우 clip(this)를 넣어주어야 함.
 function clip(e) {
   var url = "";
