@@ -169,12 +169,27 @@ function clip2() {
   });
 }
 
-/*
 $(document).ready(function () {
   $("#hamburger>#line").click(function () {
-    $(this).next().toggleClass("hide");
+    $(this).next().css("display", "block");
   });
-}); */
+});
+
+// 외부영역 클릭 시 팝업 닫기
+$(document).mouseup(function (e) {
+  var hider = $(".hide");
+  if (hider.has(e.target).length === 0) {
+    hider.hide();
+  }
+});
+
+/*$(document).ready(function () {
+  $(this).click(function () {
+    if ($(".hide").css("display") == "block") {
+      $(".hide").hide();
+    }
+  });
+});*/
 
 /*
 $(document).ready(function () {
@@ -193,6 +208,7 @@ $(document).ready(function () {
 });
 */
 
+/*
 $(document).ready(function () {
   $("#hamburger>#line")
     /*.click(function () {
@@ -203,9 +219,9 @@ $(document).ready(function () {
         2,
         "swing"
       );
-    })*/
+    })
     .mouseover(function () {
-      $(this).next().css("display", "block");
+      $(this).next().fadeIn("slow"); //css("display", "block");
     });
 });
 
