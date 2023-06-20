@@ -45,8 +45,10 @@ mediaQuery.addEventListener("change", function () {
 /*공유하기*/
 $(document).ready(function () {
   //현재 마크업 기준으로 클릭할 요소의 부모 옆에 있는 요소(팝업) 선택
-  $(".button1").click(function () {
-    $(this).next().css("display", "block");
+  $(".button1").click(function (e) {
+    $(e.target).next().css("display", "block");
+    /*e.target은 클릭한 요소를 의미하며, 대신 this를 사용할 수도 있음
+        $(this).next().css("display", "block"); */
   });
 });
 
@@ -89,76 +91,33 @@ $(document).mouseup(function (e) {
 });
 
 /*일반 자바스크립트로 작성할 경우 : 이럴 경우 clip(this)를 넣어주어야 함.
+  document.execCommand("copy");
+*/
+
 function clip(e) {
   var url = "";
   var id_check = "";
-  var textarea = document.createElement("textarea");
 
-  document.body.appendChild(textarea);
-
-  id_check = e.parentNode.id; //id값 가져오기
-  console.log(id_check);
-
+  id_check = $(this).attr("id"); //id값 가져오기
   url = id_check + ".html";
-  textarea.value = url;
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
+  window.navigator.clipboard.writeText(url);
 
-  alert("URL이 복사되었습니다.");
+  e.preventDefault();
+
+  alim = $(this).parent().parent().next();
+
+  $(alim).css("display", "block");
+
+  setTimeout(() => {
+    $(alim).css("display", "none");
+  }, 1000);
 }
-*/
 
-/*제이쿼리로 작성할 경우 1. */
 $(document).ready(function () {
-  $(".webhare").each(function () {
-    $(this).click(function () {
-      var url = "";
-      var id_check = "";
-      var textarea = document.createElement("textarea");
-
-      document.body.appendChild(textarea);
-
-      id_check = $(this).attr("id"); //id값 가져오기
-      console.log(id_check);
-
-      url = id_check + ".html";
-      textarea.value = url;
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-
-      alert("URL이 복사되었습니다.");
-    });
-  });
-});
-
-/*제이쿼리로 작성할 경우 2.
-      $(document).ready(function () {
   $(".webhare").each(function () {
     $(this).click(clip);
   });
 });
-
-function clip() {
-  var url = "";
-  var id_check = "";
-  var textarea = document.createElement("textarea");
-
-  document.body.appendChild(textarea);
-
-  id_check = $(this).attr("id"); //id값 가져오기
-  console.log(id_check);
-
-  url = id_check + ".html";
-  textarea.value = url;
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
-
-  alert("URL이 복사되었습니다.");
-}
-*/
 
 $(document).ready(function () {
   //본문 함수 사용하지 않고 바로 실행
@@ -168,13 +127,12 @@ $(document).ready(function () {
   });
 });
 
-function clip2() {
-  //본문 함수 사용할 경우
+$(document).ready(function () {
   $(".shareTwitter").click(function () {
     const pageUrl = "http://127.0.0.1:5501/index.html";
     window.open("https://twitter.com/intent/tweet?text=" + pageUrl);
   });
-}
+});
 
 $(document).ready(function () {
   $("#hamburger>#line").click(function () {
@@ -190,62 +148,7 @@ $(document).mouseup(function (e) {
   }
 });
 
-/*$(document).ready(function () {
-  $(this).click(function () {
-    if ($(".hide").css("display") == "block") {
-      $(".hide").hide();
-    }
-  });
-});*/
-
-/*
-$(document).ready(function () {
-  $("#hamburger>#line")
-    .click(function () {
-      var submenu = $(this).next();
-      if (submenu.is(":visible")) {
-        submenu.slideleft();
-      } else {
-        submenu.slideright();
-      }
-    })
-    .mouseover(function () {
-      $(this).next().slideDown();
-    });
-});
-*/
-
-/*
-$(document).ready(function () {
-  $("#hamburger>#line")
-    /*.click(function () {
-      $(this).next().animate(
-        {
-          width: "toggle",
-        },
-        2,
-        "swing"
-      );
-    })
-    .mouseover(function () {
-      $(this).next().fadeIn("slow"); //css("display", "block");
-    });
-});
-
-$(document).ready(function () {
-  $(".hide").on("mouseleave", function () {
-    $(this).css("display", "none");
-  });
-});
-
-$("body")
-  .not(".hide")
-  .on("touchstart", function () {
-    $(".hide").css("display", "none");
-  });
-
-/*
-원래 코드
+/* 본문에 on원래 코드 onclick="clip2(); return false;"
 function clip1() {
 const btnShareFb = document.querySelector(".shareFb");
 

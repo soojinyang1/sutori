@@ -29,7 +29,6 @@
   height: auto;
   text-align: center;
   word-break: keep-all;
-  z-index: 100000;
 }
 
 .content div a {
@@ -77,7 +76,6 @@
   background-color: white;
   color: #595d61;
   width: 100%;
-  z-index: 1;
   text-align: center;
 }
 
@@ -223,7 +221,7 @@ body {
 #hamburger {
   position: fixed;
   top: 50%;
-  z-index: 100000000;
+  z-index: 1000;
 }
 
 #line {
@@ -273,7 +271,7 @@ body {
   background-color: #fff;
   display: none;
   overflow: hidden;
-  z-index: 10000000000000000000000000000;
+  z-index: 10000;
 }
 
 .line1 span {
@@ -333,7 +331,6 @@ body {
   #timeline article {
     margin-top: 25px;
     width: 90%;
-    z-index: 100;
     margin-left: 50%;
     transform: translate(-50%);
   }
@@ -358,11 +355,7 @@ body {
     background-color: #fff;
   }
 
-  #timeline article div.content div.popwrap div.overlay {
-    z-index: 1000000000000000000000000000000000000000;
-  }
   .popwrap {
-    z-index: 10000000002;
     color: antiquewhite;
   }
 }
@@ -377,8 +370,23 @@ body {
   background-color: #fff;
   top: 34px;
   left: -21px;
-  z-index: 10000000000;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  z-index: 1000;
+}
+
+.alim {
+  position: absolute;
+  top: 53px;
+  left: 85px;
+  width: 100px;
+  height: 100%;
+  color: #fff;
+  background-color: darkgrey;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 1.9%; /*이걸로 높이 조절*/
+  border-radius: 8px;
+  display: none;
 }
 
 .overlay:after,
@@ -404,6 +412,13 @@ body {
   border-bottom-color: #d4d4d4;
   border-width: 9px;
   margin-left: -9px;
+}
+
+.webhare:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #fff;
+  border-width: 8px;
+  margin-left: -8px;
 }
 
 .overlay li {
@@ -449,7 +464,7 @@ button:hover {
   margin: 0;
 }
 .fb::before {
-  content: "\f052";
+  content: "\f30c";
   font-family: fontello;
   margin-left: 4px;
   padding-right: 0;
@@ -460,11 +475,16 @@ button:hover {
 }
 
 .link::before {
-  content: "\f07b";
+  content: "\f08e";
   font-family: fontello;
 }
 
 .twitter::before {
-  content: "\f058";
+  content: "\f309";
+  font-family: fontello;
+}
+
+.alim::before {
+  content: "\e800";
   font-family: fontello;
 }
